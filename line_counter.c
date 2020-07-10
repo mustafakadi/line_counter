@@ -101,9 +101,7 @@ unsigned char		*exist_ghs_ptr = 0, *exist_vscode_ptr = 0;
 if (is_dir(dir_path_str))
  {
 	curr_dir = opendir(dir_path_str);
-
 	fprintf(log_file, "%s\n", dir_path_str);
-	
 	processed_dir_cnt++;
  }
 else	return;
@@ -163,7 +161,6 @@ while ((dir_content = readdir(curr_dir)) != NULL)
 		if (curr_file == NULL) continue;
 
 		processed_file_cnt++;
-
 		fprintf(log_file, "\t%s\n", dir_content -> d_name);
 
 		if (exist_cpp_ptr)
@@ -182,7 +179,6 @@ while ((dir_content = readdir(curr_dir)) != NULL)
 		while (fgets(curr_line, sizeof(curr_line), curr_file))
 		 {
 			total_line_cnt++;
-
 			if (exist_cpp_ptr)
 				cpp_line_cnt++;
 			else if (exist_hpp_ptr)
@@ -196,11 +192,9 @@ while ((dir_content = readdir(curr_dir)) != NULL)
 			else if (exist_gpj_ptr)
 				gpj_line_cnt++;
 		 }
-
 		fclose(curr_file);
 	 }
  }
-
 closedir(curr_dir);
 }
 
@@ -233,8 +227,7 @@ h_line_cnt = 0;
 dat_line_cnt = 0;
 gpj_line_cnt = 0;
 
-recursive_file_iteration("/users/u3/vobs/ddx6/ddx6");
-//recursive_file_iteration("/users/u7/mkadiog/fun/dir_iter/test_vob");
+recursive_file_iteration("/dir1/dir2/dir3/dir4/dir5");
 
 printf("\n**Configuration Results**\n-------------------------\n");
 printf("Processed Directory Count:\t\t\t%lu\n", processed_dir_cnt);
